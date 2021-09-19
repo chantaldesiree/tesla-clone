@@ -50,6 +50,11 @@ const ProductText = styled.div`
   padding-top: 15vh;
   text-align: center;
   font-size: 25px;
+
+  p {
+    font-weight: 400;
+    font-size: 15px;
+  }
 `;
 
 const ButtonGroup = styled.div`

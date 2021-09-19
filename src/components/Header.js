@@ -25,8 +25,13 @@ function Header() {
           ))}
       </Menu>
       <RightMenu>
-        <a href="#">Shop</a>
-        <a href="#">Account</a>
+        <MenuLink>
+          <a href="#">Shop</a>
+        </MenuLink>
+        <MenuLink>
+          <a href="#">Account</a>
+        </MenuLink>
+
         <CustomMenu onClick={() => setBurgerStatus(true)} />
         <BurgerNav show={burgerStatus}>
           <CloseWrapper>
@@ -118,12 +123,18 @@ const Menu = styled.div`
   flex: 1;
   a {
     font-weight: 600;
-    padding: 0 20px;
+    padding: 8px 15px;
+    margin: 8px;
     flex-wrap: no-wrap;
     letter-spacing: 1px;
+    border-radius: 10px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
 
-  @media (max-width: 1111px) {
+  @media (max-width: 1169px) {
     display: none;
   }
 `;
@@ -134,9 +145,19 @@ const RightMenu = styled.div`
 
   a {
     font-weight: 600;
-    padding: 0 20px;
+    padding: 8px 15px;
+    margin: 8px;
     flex-wrap: no-wrap;
     letter-spacing: 1px;
+    border-radius: 10px;
+  }
+`;
+
+const MenuLink = styled.div`
+  a {
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
 `;
 
