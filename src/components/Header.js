@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
+import LanguageIcon from "@material-ui/icons/Language";
 
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
@@ -13,7 +14,7 @@ function Header() {
   return (
     <Container>
       <a href="#">
-        <img src="/images/logo.svg" alt="" />
+        <Logo src="/images/logo.svg" alt="" />
       </a>
       <Menu>
         {cars &&
@@ -25,59 +26,66 @@ function Header() {
       </Menu>
       <RightMenu>
         <a href="#">Shop</a>
-        <a href="#">Tesla Account</a>
+        <a href="#">Account</a>
+        <CustomMenu onClick={() => setBurgerStatus(true)} />
+        <BurgerNav show={burgerStatus}>
+          <CloseWrapper>
+            <CustomClose onClick={() => setBurgerStatus(false)} />
+          </CloseWrapper>
+          <li>
+            <a href="#">Existing Inventory</a>
+          </li>
+          <li>
+            <a href="#">Used Inventory</a>
+          </li>
+          <li>
+            <a href="#">Trade-In</a>
+          </li>
+          <li>
+            <a href="#">Test Drive</a>
+          </li>
+          <li>
+            <a href="#">Cybertruck</a>
+          </li>
+          <li>
+            <a href="#">Roadster</a>
+          </li>
+          <li>
+            <a href="#">Semi</a>
+          </li>
+          <li>
+            <a href="#">Charging</a>
+          </li>
+          <li>
+            <a href="#">Powerwall</a>
+          </li>
+          <li>
+            <a href="#">Commercial Energy</a>
+          </li>
+
+          <li>
+            <a href="#">Utilities</a>
+          </li>
+
+          <li>
+            <a href="#">Find Us</a>
+          </li>
+
+          <li>
+            <a href="#">Support</a>
+          </li>
+          <li>
+            <a href="#">Investor Relations</a>
+          </li>
+          <GlobeWrapper>
+            <CustomGlobe />
+            <GlobeText>
+              <h4>United States</h4>
+              <h5>English</h5>
+            </GlobeText>
+          </GlobeWrapper>
+        </BurgerNav>
       </RightMenu>
-      <CustomMenu onClick={() => setBurgerStatus(true)} />
-      <BurgerNav show={burgerStatus}>
-        <CloseWrapper>
-          <CustomClose onClick={() => setBurgerStatus(false)} />
-        </CloseWrapper>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="#">Used Inventory</a>
-        </li>
-        <li>
-          <a href="#">Trade-In</a>
-        </li>
-        <li>
-          <a href="#">Test Drive</a>
-        </li>
-        <li>
-          <a href="#">Cybertruck</a>
-        </li>
-        <li>
-          <a href="#">Roadster</a>
-        </li>
-        <li>
-          <a href="#">Semi</a>
-        </li>
-        <li>
-          <a href="#">Charging</a>
-        </li>
-        <li>
-          <a href="#">Powerwall</a>
-        </li>
-        <li>
-          <a href="#">Commercial Energy</a>
-        </li>
-
-        <li>
-          <a href="#">Utilities</a>
-        </li>
-
-        <li>
-          <a href="#">Find Us</a>
-        </li>
-
-        <li>
-          <a href="#">Support</a>
-        </li>
-        <li>
-          <a href="#">Investor Relations</a>
-        </li>
-      </BurgerNav>
     </Container>
   );
 }
@@ -97,6 +105,12 @@ const Container = styled.div`
   z-index: 1;
 `;
 
+const Logo = styled.img`
+  padding-left 20px;
+  width: 150px;
+  height: 18px;
+`;
+
 const Menu = styled.div`
   display: flex;
   align-items: center;
@@ -104,12 +118,12 @@ const Menu = styled.div`
   flex: 1;
   a {
     font-weight: 600;
-    text-transform: uppercase;
-    padding: 0 10px;
+    padding: 0 20px;
     flex-wrap: no-wrap;
+    letter-spacing: 1px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1111px) {
     display: none;
   }
 `;
@@ -120,9 +134,9 @@ const RightMenu = styled.div`
 
   a {
     font-weight: 600;
-    text-transform: uppercase;
-    padding: 0 10px;
+    padding: 0 20px;
     flex-wrap: no-wrap;
+    letter-spacing: 1px;
   }
 `;
 
@@ -141,14 +155,14 @@ const BurgerNav = styled.div`
   width: 300px;
   z-index: 10;
   list-style: none;
-  padding: 40px 0px 40px 40px;
+  padding: 30px;
   transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
   transition: transform 0.3s;
 
   li {
     margin: 15px 0px;
-    padding: 7px 7px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
+    padding: 10px 0px;
   }
 
   li:hover {
@@ -164,4 +178,27 @@ const CloseWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-right: 40px;
+`;
+
+const CustomGlobe = styled(LanguageIcon)`
+  height: 20px
+  margin: 15px 40px;
+  border-radius: 10px;
+`;
+
+const GlobeWrapper = styled.div`
+  display: flex;
+  padding: 8px 18px;
+  border-radius: 10px;
+  :hover {
+    background: #eeeeee;
+  }
+`;
+
+const GlobeText = styled.div`
+  padding: 5px 8px;
+
+  h5 {
+    padding-top: 5px;
+  }
 `;

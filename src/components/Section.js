@@ -49,6 +49,7 @@ const Wrapper = styled.div`
 const ProductText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  font-size: 25px;
 `;
 
 const ButtonGroup = styled.div`
@@ -86,6 +87,7 @@ const DownArrow = styled.img`
   height: 40px;
   overflow-x: hidden;
   animation: animateDown infinite 1.5s;
+  margin-bottom: 30px;
 `;
 
 const ButtonContainer = styled.div`
