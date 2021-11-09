@@ -5,6 +5,9 @@ import App from "./App";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 
+/**
+ * Renders to the DOM on the "root" ID of the index page.
+ */
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

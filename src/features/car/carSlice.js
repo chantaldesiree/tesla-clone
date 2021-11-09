@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/**
+  * Creates an initial state for the cars object.
+  */
 const initialState = {
   cars: [
     "Model S",
@@ -11,6 +14,9 @@ const initialState = {
   ],
 };
 
+/**
+  * Creates a slice with the name of car, using the initial state and with no reducers
+  */
 const carSlice = createSlice({
   name: "car",
   initialState,

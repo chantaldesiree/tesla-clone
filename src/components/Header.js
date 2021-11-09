@@ -7,9 +7,25 @@ import LanguageIcon from "@material-ui/icons/Language";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
 
+/**
+  * Header component contains links to navigation 
+  * as well as hamburger menu for additional content.
+  */
 function Header() {
+  /**
+	  * Sets the status of the buger menu to open or closed.
+	  */
   const [burgerStatus, setBurgerStatus] = useState(false);
+
+  /**
+	  * Retrieves the cars loaded into Redux.
+	  */
   const cars = useSelector(selectCars);
+
+  /**
+  * An array of all of the links in the burger menu.
+  */
+  const burgerMenuLinks = ["Existing Inventory", "Used Inventory", "Trade-In", "Test Drive", "Cybertruck", "Roadster", "Semi", "Charging", "Powerwall", "Commercial Energy", "Utilities", "Find Us", "Support", "Investor Relations"];
 
   return (
     <Container>
@@ -37,51 +53,13 @@ function Header() {
           <CloseWrapper>
             <CustomClose onClick={() => setBurgerStatus(false)} />
           </CloseWrapper>
-          <li>
+
+          {burgerMenuLinks.forEach((link, index) => {
+            return (<li key={index}>
             <a href="#">Existing Inventory</a>
-          </li>
-          <li>
-            <a href="#">Used Inventory</a>
-          </li>
-          <li>
-            <a href="#">Trade-In</a>
-          </li>
-          <li>
-            <a href="#">Test Drive</a>
-          </li>
-          <li>
-            <a href="#">Cybertruck</a>
-          </li>
-          <li>
-            <a href="#">Roadster</a>
-          </li>
-          <li>
-            <a href="#">Semi</a>
-          </li>
-          <li>
-            <a href="#">Charging</a>
-          </li>
-          <li>
-            <a href="#">Powerwall</a>
-          </li>
-          <li>
-            <a href="#">Commercial Energy</a>
-          </li>
+          </li>);
+          })}
 
-          <li>
-            <a href="#">Utilities</a>
-          </li>
-
-          <li>
-            <a href="#">Find Us</a>
-          </li>
-
-          <li>
-            <a href="#">Support</a>
-          </li>
-          <li>
-            <a href="#">Investor Relations</a>
-          </li>
           <GlobeWrapper>
             <CustomGlobe />
             <GlobeText>

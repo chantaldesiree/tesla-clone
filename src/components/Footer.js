@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
+/**
+  * Footer component contains all copyright and legal information
+  * as well as additional navigational links.
+  */
 function Footer() {
   return (
     <Container>
       <a href="#">Tesla © 2021</a>
-      <a href="#">Privacy & Legal</a>
+      <a href="#">Privacy &amp; Legal</a>
       <a href="#">Contact</a>
       <a href="#">Careers</a>
       <a href="#">News</a>

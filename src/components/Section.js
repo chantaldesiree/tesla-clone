@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 
+/**
+  * Section component displays all information about a section
+  * as well as a navigational arrow urging the customer down the page.
+  */
 function Section({
   title,
   description,
