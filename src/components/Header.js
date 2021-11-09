@@ -8,24 +8,39 @@ import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
 
 /**
-  * Header component contains links to navigation 
-  * as well as hamburger menu for additional content.
-  */
+ * Header component contains links to navigation
+ * as well as hamburger menu for additional content.
+ */
 function Header() {
   /**
-	  * Sets the status of the buger menu to open or closed.
-	  */
+   * Sets the status of the buger menu to open or closed.
+   */
   const [burgerStatus, setBurgerStatus] = useState(false);
 
   /**
-	  * Retrieves the cars loaded into Redux.
-	  */
+   * Retrieves the cars loaded into Redux.
+   */
   const cars = useSelector(selectCars);
 
   /**
-  * An array of all of the links in the burger menu.
-  */
-  const burgerMenuLinks = ["Existing Inventory", "Used Inventory", "Trade-In", "Test Drive", "Cybertruck", "Roadster", "Semi", "Charging", "Powerwall", "Commercial Energy", "Utilities", "Find Us", "Support", "Investor Relations"];
+   * An array of all of the links in the burger menu.
+   */
+  const burgerMenuLinks = [
+    "Existing Inventory",
+    "Used Inventory",
+    "Trade-In",
+    "Test Drive",
+    "Cybertruck",
+    "Roadster",
+    "Semi",
+    "Charging",
+    "Powerwall",
+    "Commercial Energy",
+    "Utilities",
+    "Find Us",
+    "Support",
+    "Investor Relations",
+  ];
 
   return (
     <Container>
@@ -54,10 +69,12 @@ function Header() {
             <CustomClose onClick={() => setBurgerStatus(false)} />
           </CloseWrapper>
 
-          {burgerMenuLinks.forEach((link, index) => {
-            return (<li key={index}>
-            <a href="#">Existing Inventory</a>
-          </li>);
+          {burgerMenuLinks.map((link, index) => {
+            return (
+              <li key={index}>
+                <a href="#">{link}</a>
+              </li>
+            );
           })}
 
           <GlobeWrapper>
